@@ -2,6 +2,8 @@ package com.hh;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,12 +12,23 @@ class MathUtilsTest {
 	int cachedValue = 0; 
 	MathUtils mathUtils;
 	
+	@BeforeAll
+	static void beforeAllInit() {
+		System.out.println("This needs to run before all");
+	}
 	
 	@BeforeEach
 	
 	void init() {
 		mathUtils = new MathUtils();
 		
+	}
+	
+	
+	@AfterEach
+	void cleanup() {
+		
+		System.out.println("Cleaning up...");
 	}
 	
 	@Test
